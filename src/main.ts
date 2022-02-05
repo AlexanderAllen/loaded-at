@@ -12,11 +12,11 @@ function app () {
  * @param {number} tabId
  * @param {number} timestamp
  */
-function updateUI (tabId, timestamp) {
+function updateUI (tabId: number, timestamp: number) {
     const date = new Date(timestamp);
     // '6:42 in the morning Eastern Standard Time'
     const longTime = Intl.DateTimeFormat('en', { hour: 'numeric', dayPeriod: 'long', hourCycle: 'h12', hour12: true, minute: 'numeric', timeZoneName: 'long'}).format(date);
-    const longDate = Intl.DateTimeFormat('en', {dateStyle: 'long', hourCycle: 'h12', hour12: true}).format(date);
+    const longDate = Intl.DateTimeFormat('en', { dateStyle: 'long', hourCycle: 'h12', hour12: true}).format(date);
     const shortTime = Intl.DateTimeFormat('en', { hour: 'numeric', hourCycle: 'h12', hour12: true, minute: 'numeric'}).format(date).slice(0, 4);
 
     chrome.action.setBadgeText({tabId: tabId, text: shortTime});
