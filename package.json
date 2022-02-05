@@ -1,13 +1,14 @@
 {
   "name": "loaded-at",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "Loaded At",
   "private": true,
   "scripts": {
     "watch": "webpack --mode=development --watch --config config/webpack.config.js",
     "build": "webpack --mode=production --config config/webpack.config.js"
   },
   "devDependencies": {
+    "chrome-types": "^0.1.86",
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^4.3.0",
     "file-loader": "^6.2.0",
