@@ -12,7 +12,7 @@ const config = (env, argv) => merge(common, {
     contentScript: PATHS.src + '/contentScript.js',
     background: PATHS.src + '/background.ts',
   },
-  devtool: argv.mode === 'production' ? false : 'source-map'
+  devtool: argv.mode === 'production' ? false : 'inline-source-map'
 });
 
 module.exports = config;
