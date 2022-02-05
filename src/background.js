@@ -1,6 +1,7 @@
 'use strict';
 
 import { app } from './main.js'
+import { library, icon } from '@fortawesome/fontawesome-svg-core'
 
 app();
 

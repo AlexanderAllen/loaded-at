@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Drupalista",
   "description": "Show when you last loaded a tab for unobtrusive, convenient timetracking.",
-  "homepage_url": "https://www.linkedin.com/in/drupalista/",
+  "homepage_url": "https://github.com/AlexanderAllen/loaded-at",
 
   "minimum_chrome_version": "93",
   "manifest_version": 3,
