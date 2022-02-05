@@ -1,3 +1,5 @@
+/// <reference types="chrome-types" />
+
 function app () {
     chrome.tabs.onActivated.addListener(tabListener);
 }
@@ -31,11 +33,11 @@ function updateUI (tabId: number, timestamp: number) {
  *
  * @param {number} tabId
  */
-async function tabListener ({tabId}) {
+async function tabListener ({tabId}: {tabId: number}) {
 
     // Get the current tab URL to query History API.
     let tab = await chrome.tabs.get(tabId);
-    const { id, title, url } = tab;
+    const { id, title, url = '' } = tab;
 
     // Query History API.
     const query = {
@@ -48,14 +50,14 @@ async function tabListener ({tabId}) {
     }
 
     // De-structure first search result for quick-match.
-    let [{lastVisitTime: lastVisitTime = null, title: historyTitle = null, url: historyUrl = null}] = HistoryItems;
+    let [{lastVisitTime = 0, title: historyTitle = null, url: historyUrl = null}] = HistoryItems;
     if (url === historyUrl && lastVisitTime !== null) {
         updateUI(tabId, lastVisitTime);
         return;
     }
 
     // If match not found on first query result, de-structure all results for search.
-    for (let {lastVisitTime, title: historyTitle, url: historyUrl} of HistoryItems) {
+    for (let {lastVisitTime = 0, title: historyTitle, url: historyUrl} of HistoryItems) {
         if (url === historyUrl) {
             updateUI(tabId, lastVisitTime);
             break;
