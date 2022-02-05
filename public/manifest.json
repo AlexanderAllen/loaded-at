@@ -14,24 +14,12 @@
     "type": "module"
   },
   "action": {
-      "default_title": "Loaded At",
-      "default_popup": "popup.html"
+      "default_title": "Loaded At"
   },
   "icons": {
       "16": "icons/stopwatch-solid.png",
       "32": "icons/stopwatch-solid.png",
       "48": "icons/stopwatch-solid.png",
       "128": "icons/stopwatch-solid.png"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "run_at": "document_idle",
-      "js": [
-        "contentScript.js"
-      ]
-    }
-  ]
+  }
 }
