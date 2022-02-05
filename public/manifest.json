@@ -1,27 +1,28 @@
 {
-  "manifest_version": 2,
   "name": "Loaded At",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
-  "icons": {
-    "16": "icons/icon_16.png",
-    "32": "icons/icon_32.png",
-    "48": "icons/icon_48.png",
-    "128": "icons/icon_128.png"
-  },
+  "author": "Drupalista",
+  "description": "Show when you last loaded a tab for unobtrusive, convenient timetracking.",
+  "homepage_url": "https://www.linkedin.com/in/drupalista/",
+
+  "minimum_chrome_version": "93",
+  "manifest_version": 3,
+  "permissions": ["storage", "activeTab", "scripting", "history", "tabs"],
+  "host_permissions": ["https://*/", "http://*/"],
   "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
+    "service_worker": "background.js",
+    "type": "module"
   },
-  "browser_action": {
-    "default_title": "Loaded At",
-    "default_popup": "popup.html"
+  "action": {
+      "default_title": "Loaded At",
+      "default_popup": "popup.html"
   },
-  "permissions": [
-    "storage"
-  ],
+  "icons": {
+      "16": "icons/stopwatch-solid.png",
+      "32": "icons/stopwatch-solid.png",
+      "48": "icons/stopwatch-solid.png",
+      "128": "icons/stopwatch-solid.png"
+  },
   "content_scripts": [
     {
       "matches": [
