@@ -49,14 +49,7 @@ async function tabListener ({tabId}: {tabId: number}) {
         return;
     }
 
-    // De-structure first search result for quick-match.
-    let [{lastVisitTime = 0, title: historyTitle = null, url: historyUrl = null}] = HistoryItems;
-    if (url === historyUrl && lastVisitTime !== null) {
-        updateUI(tabId, lastVisitTime);
-        return;
-    }
-
-    // If match not found on first query result, de-structure all results for search.
+    // Destructure each search result until a URL match is found.
     for (let {lastVisitTime = 0, title: historyTitle, url: historyUrl} of HistoryItems) {
         if (url === historyUrl) {
             updateUI(tabId, lastVisitTime);
