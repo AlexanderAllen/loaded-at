@@ -22,8 +22,16 @@ const common = {
     errors: true,
     builtAt: true,
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   module: {
     rules: [
+      {
+        test: /\.ts$|\.tsx$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
       // Help webpack in understanding CSS files imported in .js files
       {
         test: /\.css$/,
