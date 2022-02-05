@@ -1,9 +1,11 @@
 'use strict';
 
-import { app } from './main.js'
+import { app } from './main'
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 
 app();
+
+console.log('HELLO WORLD');
 
 
 // With background scripts you can communicate with popup
